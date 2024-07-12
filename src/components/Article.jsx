@@ -1,6 +1,9 @@
-const ArticleStatus = ({ isNew }) => {
-  return isNew && <span> -- New!</span>;
-};
+import { useContext } from "react";
+import { GlobalContext } from "../context";
+
+// const ArticleStatus = ({ isNew }) => {
+//   return isNew && <span> -- New!</span>;
+// };
 
 function Article(props) {
   //   const name = "Ohio";
@@ -23,6 +26,8 @@ function Article(props) {
   //     </>
   //   );
 
+  const user = useContext(GlobalContext);
+
   return (
     <>
       {/* <div>{props.name}</div>
@@ -41,8 +46,11 @@ function Article(props) {
         Date : {props.date}, tags : {props.tags.join(", ")}
         {/* {props.isNew ? "-- New!" : ""} OR : */}
         {/* {props.isNew && " -- New!"} */}
-        <ArticleStatus isNew={props.isNew} />
+        {/* <ArticleStatus isNew={props.isNew} /> */}
       </small>
+      <div>
+        <small>Ditulis oleh {user.username}</small>
+      </div>
       {/* <div>
         {props.titles.map((title) => {
           return (
